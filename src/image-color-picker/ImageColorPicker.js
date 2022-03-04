@@ -1,4 +1,4 @@
-// Image color Picker created by Roman Flössler - https://github.com/Roman-Flossler
+// Image color Picker created by superstar0914 - https://github.com/superstar0914
 
 import React, { Component } from 'react';
 import Canvas from './Canvas';
@@ -10,7 +10,7 @@ class ImageColorPicker extends Component {
     super(props)
     this.state = {
       color: '',
-      pos: [props.pickerMaxSize[0]/3-20, props.pickerMaxSize[1]/2-20],
+      pos: [props.pickerMaxSize[0] / 3 - 20, props.pickerMaxSize[1] / 2 - 20],
       ctx: null,
       mouseDown: undefined,
       loadedImg: undefined
@@ -20,20 +20,20 @@ class ImageColorPicker extends Component {
   }
 
   getCtx = (ctx) => {
-    this.setState({ ctx: ctx });    
+    this.setState({ ctx: ctx });
   }
 
-  getColor = (x,y) => {
+  getColor = (x, y) => {
     const imgData = this.state.ctx.getImageData(x, y, 1, 1);
     return 'rgb(' + imgData.data[0] + ', ' + imgData.data[1] + ', ' + imgData.data[2] + ')';
   }
 
   onMouseDown = (e) => {
-    this.setState({  
+    this.setState({
       pos: [e.nativeEvent.offsetX, e.nativeEvent.offsetY],
       mouseDown: true,
       color: this.getColor(e.nativeEvent.offsetX, e.nativeEvent.offsetY)
-    });    
+    });
   }
 
   onMouseUp = () => {
@@ -41,38 +41,38 @@ class ImageColorPicker extends Component {
     this.props.onColorPicked && this.props.onColorPicked(this.state.color);
   }
 
-  onMouseMove = (e) => {    
+  onMouseMove = (e) => {
     if (this.state.mouseDown) {
-      let color = this.getColor(e.nativeEvent.offsetX, e.nativeEvent.offsetY) 
-      this.setState({  
+      let color = this.getColor(e.nativeEvent.offsetX, e.nativeEvent.offsetY)
+      this.setState({
         pos: [e.nativeEvent.offsetX, e.nativeEvent.offsetY],
         color: color
       });
       this.props.onColorPicking && this.props.onColorPicking(color);
-    }     
+    }
   }
-  
-  onTouchMove = (e) => {    
-    e.preventDefault();    
+
+  onTouchMove = (e) => {
+    e.preventDefault();
     let bcr = e.target.getBoundingClientRect();
     let x = e.targetTouches[0].clientX - bcr.x;
     let y = e.targetTouches[0].clientY - bcr.y;
     x = x < 0 ? 0 : x;
     y = y < 0 ? 0 : y;
-    x = x > bcr.width-1 ? bcr.width-1 : x;
-    y = y > bcr.height-1 ? bcr.height-1 : y;
-    let color = this.getColor(x, y); 
+    x = x > bcr.width - 1 ? bcr.width - 1 : x;
+    y = y > bcr.height - 1 ? bcr.height - 1 : y;
+    let color = this.getColor(x, y);
     this.setState({
-        pos: [ x , y],
-        mouseDown: true,
-        color: color
-      });
+      pos: [x, y],
+      mouseDown: true,
+      color: color
+    });
     this.props.onColorPicking && this.props.onColorPicking(color);
   }
 
   componentDidMount() {
     this.touchCatcher.current.addEventListener('touchmove', this.onTouchMove, { passive: false });
-  }  
+  }
   componentWillUnmount() {
     this.touchCatcher.current.removeEventListener('touchmove', this.onTouchMove);
   }
@@ -80,7 +80,7 @@ class ImageColorPicker extends Component {
   onFileChange = () => {
     let loadedImg = new Image();
     loadedImg.onload = () => {
-      this.setState( {loadedImg: loadedImg} )    
+      this.setState({ loadedImg: loadedImg })
     }
     if (this.fileInp.current.files[0]) {
       loadedImg.src = URL.createObjectURL(this.fileInp.current.files[0]);
@@ -90,17 +90,17 @@ class ImageColorPicker extends Component {
   render() {
     return (
       <div>
-      <div style={{ borderColor: this.state.color, borderRadius: this.props.roundness }} id='frame' >
-        <Canvas loadedImg={this.state.loadedImg} imgUrl={this.props.imgUrl} sizeX={this.props.pickerMaxSize[0]} sizeY={this.props.pickerMaxSize[1]} 
-                roundness={this.props.roundness} getCtx={this.getCtx} ></Canvas>
-        
-        <Color color={this.state.color} pos={this.state.pos} mouseDown={this.state.mouseDown} 
-        onColorPickedText={this.props.onColorPickedText} showRGB={this.props.showRGB} width={this.props.pickerMaxSize[0]} ></Color>
-        
-        <div id='mousecatcher'  ref={this.touchCatcher} onMouseMove={ this.onMouseMove } onMouseDown={this.onMouseDown}  onMouseUp={ this.onMouseUp } onTouchEnd={ this.onMouseUp }
-        style={ { borderRadius: this.props.roundness-13, cursor: this.state.mouseDown ? 'none' : 'default'  }} ></div>
-      </div>
-      <input ref={this.fileInp} type="file" onChange={this.onFileChange} style={this.props.selectImgButton ? { display:'block' } : { display:'none' } }></input>
+        <div style={{ borderColor: this.state.color, borderRadius: this.props.roundness }} id='frame' >
+          <Canvas loadedImg={this.state.loadedImg} imgUrl={this.props.imgUrl} sizeX={this.props.pickerMaxSize[0]} sizeY={this.props.pickerMaxSize[1]}
+            roundness={this.props.roundness} getCtx={this.getCtx} ></Canvas>
+
+          <Color color={this.state.color} pos={this.state.pos} mouseDown={this.state.mouseDown}
+            onColorPickedText={this.props.onColorPickedText} showRGB={this.props.showRGB} width={this.props.pickerMaxSize[0]} ></Color>
+
+          <div id='mousecatcher' ref={this.touchCatcher} onMouseMove={this.onMouseMove} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onTouchEnd={this.onMouseUp}
+            style={{ borderRadius: this.props.roundness - 13, cursor: this.state.mouseDown ? 'none' : 'default' }} ></div>
+        </div>
+        <input ref={this.fileInp} type="file" onChange={this.onFileChange} style={this.props.selectImgButton ? { display: 'block' } : { display: 'none' }}></input>
       </div>
     );
   }

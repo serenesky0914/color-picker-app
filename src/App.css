@@ -1,11 +1,11 @@
 
 body, html {
-  background-color: #282c34 !important;
+  /* background-color: #282c34; */
 }
 
 h1 {
   font-size: 8vw;    
-  letter-spacing: -0.16em;
+  letter-spacing: -0.09em;
   color: #3a444b;
   margin: 3vh;
   text-align: center;

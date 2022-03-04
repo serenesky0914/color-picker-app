@@ -36,10 +36,10 @@ onScreenResize = () => {
   render() {
     return (
         <div className="App">
-        <h1 style={{color: this.state.color,  textShadow: '0 0 11px' + this.state.color }} >image Color Picker</h1>
+        <h1 style={{color: this.state.color,  textShadow: '0 0 11px' + this.state.color }} >Color Picker App</h1>
           <header className="App-header">            
             <ImageColorPicker imgUrl={'rgb.png'} pickerMaxSize={[300,300]} roundness={200} showRGB={true}
-                              onColorPicked={this.changeTitle} onColorPickedText={'is the new tab title'}  >
+                              onColorPicking={this.changeColor} onColorPicked={this.changeTitle} onColorPickedText={'is the new tab title'}  >
             </ImageColorPicker>
             <br />
             <ImageColorPicker selectImgButton={true} imgUrl={'palette.png'} pickerMaxSize={[this.getResponsiveWidth(555),300]} onColorPicking={this.changeColor} 
