@@ -100,7 +100,7 @@ class ImageColorPicker extends Component {
           <div id='mousecatcher' ref={this.touchCatcher} onMouseMove={this.onMouseMove} onMouseDown={this.onMouseDown} onMouseUp={this.onMouseUp} onTouchEnd={this.onMouseUp}
             style={{ borderRadius: this.props.roundness - 13, cursor: this.state.mouseDown ? 'none' : 'default' }} ></div>
         </div>
-        <input ref={this.fileInp} type="file" onChange={this.onFileChange} style={this.props.selectImgButton ? { display: 'block' } : { display: 'none' }}></input>
+        <input className='btn_choose' ref={this.fileInp} type="file" onChange={this.onFileChange} style={this.props.selectImgButton ? { display: 'block' } : { display: 'none' }}></input>
       </div>
     );
   }
