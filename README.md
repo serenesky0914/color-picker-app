@@ -1,13 +1,47 @@
+# [React-color-picker](https://github.com/superstar0914/color-picker-app)
 
-# Color Picker Tools
+[![Npm Version][npm-version-image]][npm-version-url]
+[![Build Status][travis-svg]][travis-url]
+[![download][downloads-image]][downloads-image]
 
-imgUrl = {string} &nbsp; &nbsp;*// path to an image - a source for color picking<br>*
-pickerMaxSize = {[ number , number ]} &nbsp; &nbsp;*// max width and height of the component <br>*
+* **13 Different Pickers** - Sketch, Photoshop, Chrome and many more
 
-Optional: <br>
-roundness = {number}  &nbsp; &nbsp;*// border radius of the component <br>*
-selectImgButton = {boolean} &nbsp; &nbsp;*// if true, there will be a button for new image selection <br>*
-onColorPicking = {function} &nbsp; &nbsp;*// callback function which gets a color while picking<br>*
-onColorPicked = {function}  &nbsp; &nbsp;*// callback function which gets a picked color<br>*
-onColorPickedText = {string}  &nbsp; &nbsp;*// a text to display after a color is picked <br>*
-showRGB = {boolean} &nbsp; &nbsp;*// if true, a color's RGB value will be shown*
+* **Make Your Own** - Use the building block components to make your own
+
+## Demo
+
+<!-- ![Demo](https://giphy.com/channel/superstar0914/color-picker-custom) -->
+
+[**Live Demo**](https://github.com/superstar0914/color-picker-app)
+
+## Installation & Usage
+
+```sh
+npm install react-color --save
+```
+
+### Include the Component
+
+```js
+import React from 'react'
+import { SketchPicker } from 'react-color'
+
+class Component extends React.Component {
+
+  render() {
+    return <SketchPicker />
+  }
+}
+```
+You can import `AlphaPicker` `BlockPicker` `ChromePicker` `CirclePicker` `CompactPicker` `GithubPicker` `HuePicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` `TwitterPicker` respectively.
+
+> 100% inline styles via [ReactCSS](http://reactcss.com/)
+
+[travis-svg]: https://travis-ci.org/casesandberg/react-color.svg
+[travis-url]: https://travis-ci.org/casesandberg/react-color
+[license-image]: http://img.shields.io/npm/l/react-color.svg
+[license-url]: LICENSE
+[downloads-image]: https://img.shields.io/npm/dm/react-color.svg
+[downloads-url]: http://npm-stat.com/charts.html?package=react-color
+[npm-version-image]: https://img.shields.io/npm/v/react-color.svg
+[npm-version-url]: https://www.npmjs.com/package/react-color
