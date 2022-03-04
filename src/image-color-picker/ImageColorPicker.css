@@ -1,0 +1,22 @@
+
+#frame {
+    border: 11px solid #3a444b;;    
+    position: relative;    
+    font-size: 0;
+    margin: 2vw;
+    display: inline-block;    
+}
+
+#mousecatcher {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+input[type='file'] {
+    margin: auto;
+    filter: invert(1);
+}

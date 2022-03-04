@@ -1,0 +1,33 @@
+
+body, html {
+  background-color: #282c34 !important;
+}
+
+h1 {
+  font-size: 8vw;    
+  letter-spacing: -0.16em;
+  color: #3a444b;
+  margin: 3vh;
+  text-align: center;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@media (max-width: 888px) {
+  .App-header {   
+    flex-direction: column-reverse;
+  }
+
+  h1 {
+    font-size: 15vw;  
+    margin:  3vh 0;
+  }
+  
+}
