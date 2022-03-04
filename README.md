@@ -4,38 +4,27 @@
 [![Build Status][travis-svg]][travis-url]
 [![download][downloads-image]][downloads-image]
 
-* **13 Different Pickers** - Sketch, Photoshop, Chrome and many more
-
-* **Make Your Own** - Use the building block components to make your own
+* **Image Color Picker** - Get color on uploaded image.
 
 ## Demo
 
-<!-- ![Demo](https://giphy.com/channel/superstar0914/color-picker-custom) -->
+![Demo](https://media.giphy.com/media/8kfpOoZlsU45WYffLx/giphy.gif)
 
-[**Live Demo**](https://github.com/superstar0914/color-picker-app)
+[**Live Demo**](https://color-picker-apps.herokuapp.com/)
 
 ## Installation & Usage
 
 ```sh
-npm install react-color --save
+npm install
 ```
 
-### Include the Component
+## Run in local
 
 ```js
-import React from 'react'
-import { SketchPicker } from 'react-color'
-
-class Component extends React.Component {
-
-  render() {
-    return <SketchPicker />
-  }
-}
+npm start:local
 ```
-You can import `AlphaPicker` `BlockPicker` `ChromePicker` `CirclePicker` `CompactPicker` `GithubPicker` `HuePicker` `MaterialPicker` `PhotoshopPicker` `SketchPicker` `SliderPicker` `SwatchesPicker` `TwitterPicker` respectively.
 
-> 100% inline styles via [ReactCSS](http://reactcss.com/)
+> 100%
 
 [travis-svg]: https://travis-ci.org/casesandberg/react-color.svg
 [travis-url]: https://travis-ci.org/casesandberg/react-color
