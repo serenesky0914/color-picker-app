@@ -5,6 +5,7 @@ import Canvas from './Canvas';
 import Color from './Color';
 import './ImageColorPicker.css';
 
+
 class ImageColorPicker extends Component {
   constructor(props) {
     super(props)
