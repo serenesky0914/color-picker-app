@@ -12,7 +12,7 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      color: 'rgb(0, 0, 0)',
+      color: 'rgb(58 68 75)',
       screenWidth: window.screen.width
     }
     this.onScreenResize();
@@ -46,7 +46,7 @@ class App extends Component {
   render() {
     return (
       <div className="App container container-fluid">
-        <p className='app-title' style={{ color: this.state.color, textShadow: '0 0 8px' + this.state.color }} >Color Picker App</p>
+        <p className='app-title' style={{ textShadow: '0 0 8px' }} >Color Picker App</p>
         <header className="App-header mb-5">
           <ImageColorPicker imgUrl={'rgb.png'} pickerMaxSize={[300, 300]} roundness={200} showRGB={true}
             onColorPicking={this.changeColor} onColorPicked={this.changeTitle} onColorPickedText={'is the new tab title'}  >
