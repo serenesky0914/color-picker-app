@@ -1,0 +1,15 @@
+.color-range-form{
+    /* display: inline-blox; */
+}
+.label{
+    min-width: 100px;
+}
+.color-range{
+    min-width: 200px;
+}
+
+.ml-3{
+    margin-right: 5px;
+    max-width: 70px;
+    margin: auto;
+}

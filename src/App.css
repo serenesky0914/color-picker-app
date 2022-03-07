@@ -3,12 +3,17 @@ body, html {
   /* background-color: #282c34; */
 }
 
-h1 {
+.app-title {
   font-size: 5vw;    
   letter-spacing: -0.09em;
   color: #3a444b;
   margin: 3vh;
   text-align: center;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
 }
 
 .App-header {

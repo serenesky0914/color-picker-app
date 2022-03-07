@@ -1,72 +1,82 @@
 import React, { Component } from 'react';
 import ImageColorPicker from './image-color-picker/ImageColorPicker';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css'; 
+import ConvertedColorBoard from './edit-color-panel/edit-color-board/ConvertedColorBoard';
+import HexHtmlViewer from './edit-color-panel/hex-html-view-board/HexHtmlViewer.js';
+import ColorController from './edit-color-panel/color-controller/ColorController.js';
+import ColorHelpers from './ColorHelper';
+
+
 import './App.css';
-// import ChromePicker from 'react-color';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      color: '',
+      color: 'rgb(0, 0, 0)',
       screenWidth: window.screen.width
     }
     this.onScreenResize();
   }
 
 
-changeTitle = (color) => {
-  document.title = ' 🎨 ' + color;
-}
+  changeTitle = (color) => {
+    document.title = ' 🎨 ' + color;
+  }
 
-changeColor = (color) => {
-  this.setState( {color: color} );  
-}
+  changeColor = (color) => {
+    this.setState({ color: color });
+  }
 
-getResponsiveWidth = (width) => { 
-  let maxWidth = this.state.screenWidth - 24 - this.state.screenWidth/20;
-  return width > maxWidth ? maxWidth : width;
-}
+  getResponsiveWidth = (width) => {
+    let maxWidth = this.state.screenWidth - 24 - this.state.screenWidth / 20;
+    return width > maxWidth ? maxWidth : width;
+  }
 
-onScreenResize = () => {
-  window.addEventListener('resize', () => {
-    this.setState({screenWidth: window.screen.width});
-  });
-}
+  onScreenResize = () => {
+    window.addEventListener('resize', () => {
+      this.setState({ screenWidth: window.screen.width });
+    });
+  }
 
-onChangeColor = (color) => {
-  console.log(color);
-  this.setState( {color: color} );  
-}
+  // onChangeColor = (color) => {
+  //   console.log(color);
+  //   this.setState({ color: color });
+  // }
 
   render() {
     return (
-        <div className="App container container-fluid">
-          <h1 style={{color: this.state.color,  textShadow: '0 0 8px' + this.state.color }} >Color Picker App</h1>
-          <header className="App-header mb-5">            
-            <ImageColorPicker imgUrl={'rgb.png'} pickerMaxSize={[300,300]} roundness={200} showRGB={true}
-                              onColorPicking={this.changeColor} onColorPicked={this.changeTitle} onColorPickedText={'is the new tab title'}  >
-            </ImageColorPicker>
-            <br />
-            <ImageColorPicker selectImgButton={true} imgUrl={'palette.png'} pickerMaxSize={[this.getResponsiveWidth(555),300]} onColorPicking={this.changeColor} 
-                              onColorPicked={this.changeColor} roundness={16} >
-            </ImageColorPicker>
-          </header>
-          
-          <div className="card change-color-board text-center">
-            <div className="card-body">
-              <p className='title'>
-                Edit and Convert Color Code
-              </p>
-              <div className='sel-color' style={{backgroundColor: this.state.color,  boxShadow: '0 0 3px' + this.state.color }}></div>
-              <div>
-                {/* <ChromePicker onChange={this.onChangeColor}>
+      <div className="App container container-fluid">
+        <p className='app-title' style={{ color: this.state.color, textShadow: '0 0 8px' + this.state.color }} >Color Picker App</p>
+        <header className="App-header mb-5">
+          <ImageColorPicker imgUrl={'rgb.png'} pickerMaxSize={[300, 300]} roundness={200} showRGB={true}
+            onColorPicking={this.changeColor} onColorPicked={this.changeTitle} onColorPickedText={'is the new tab title'}  >
+          </ImageColorPicker>
+          <br />
+          <ImageColorPicker selectImgButton={true} imgUrl={'palette.png'} pickerMaxSize={[this.getResponsiveWidth(555), 300]} onColorPicking={this.changeColor}
+            onColorPicked={this.changeColor} roundness={16} >
+          </ImageColorPicker>
+        </header>
 
-                </ChromePicker> */}
+        <div className="card change-color-board text-center shadow">
+          <div className="card-body">
+            <p className='title'>
+              Edit and Convert Color Code
+            </p>
+            <div>
+              <ConvertedColorBoard style={{ backgroundColor: this.state.color, boxShadow: '0 0 3px' + this.state.color }} />
+            </div>
+
+            <div className='row'>
+              <div className='col-sm-6'>
+                <HexHtmlViewer rgbValue={this.state.color}/>
+              </div>
+              <div className='col-sm-6'>
+                <ColorController rgbValue={this.state.color}/>
               </div>
             </div>
           </div>
         </div>
+      </div>
     );
   }
 }
