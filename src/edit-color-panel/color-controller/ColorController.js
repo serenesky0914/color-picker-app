@@ -53,17 +53,8 @@ class ColorController extends Component {
             this.selectedOp = this.state.options[index];
         }
         this.selectedOp = this.state.options[e.target.value];
-
-        
-
         const element = this.fnBindData(this.selectedOp.label);
-        
-        console.log('update');
         ReactDOM.render(element, document.getElementById('inputColorGroup'));
-
-        // var container = document.getElementById("inputColorGroup");
-        // // and replace the child
-        // container.replaceChild(container, document.getElementById("inputColorGroup"));
     }
 
     onChangeEvent(changeEvent){
@@ -82,8 +73,6 @@ class ColorController extends Component {
         const blue = ColorHelpers.blueColorNum(this.props.rgbValue);
 
         this.selectedOp.color = [red, green, blue, 0];
-        // this.props.rgbValue = 'rgb(57, 95, 143)';
-
        
         return parm.map((val, index) => 
             <InputGroup className="mb-2" id={'group_' + index}  key={'group_' + index}>

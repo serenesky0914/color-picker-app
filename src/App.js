@@ -38,11 +38,6 @@ class App extends Component {
     });
   }
 
-  // onChangeColor = (color) => {
-  //   console.log(color);
-  //   this.setState({ color: color });
-  // }
-
   render() {
     return (
       <div className="App container container-fluid">

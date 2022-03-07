@@ -12,8 +12,6 @@ import ColorHelpers from '../../ColorHelper';
 const HexHtmlViewer = (param) => {
     
     const onChange = (e) => {
-        console.log(e);
-        // this.useState(value: e);
     }
     return (
         <>

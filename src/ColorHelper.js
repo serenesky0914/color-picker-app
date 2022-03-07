@@ -1,6 +1,3 @@
-
-
-
 const ColorHelpers = {
     c_red : 0,
     c_green : 0,
@@ -18,11 +15,8 @@ const ColorHelpers = {
         return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
     },
     RGBToHex(rgb) {
-        // Choose correct separator
         let sep = rgb.indexOf(",") > -1 ? "," : " ";
-        // Turn "rgb(r,g,b)" into [r,g,b]
         rgb = rgb.substr(4).split(")")[0].split(sep);
-
         
         let r = parseInt(rgb[1], 16),
         g = parseInt(rgb[1], 16),
